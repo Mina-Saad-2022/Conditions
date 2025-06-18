@@ -9,7 +9,11 @@ function LanguageSwitcher() {
   const location = useLocation();
 
   return (
-    <div className="mb-3">
+    <div
+      className={`mb-3 ${
+        location.pathname === "/ar" ? "text-end" : "text-start"
+      }`}
+    >
       <Link
         to="/ar"
         className={`btn me-2 ${location.pathname === "/ar" ? "btn-warning" : "btn-secondary"}`}
@@ -29,7 +33,7 @@ function LanguageSwitcher() {
 function App() {
   return (
     <Router>
-      <div className="container ">
+      <div className="container">
         <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<Navigate to="/en" replace />} />
